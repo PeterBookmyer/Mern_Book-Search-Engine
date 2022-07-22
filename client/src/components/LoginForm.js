@@ -11,7 +11,6 @@ const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-
   const [loginUser, { error }] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
@@ -22,8 +21,15 @@ const LoginForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    //validate form
+    const form = event.currentTarget;
+    if (form.checkAvailibility() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     try {
-      const { data } = await loginUser({ variables: { ...userFormData } });
+      const { data } = await login({ variables: { ...userFormData } });
 
       Auth.login(data.login.token);
     } catch (err) {
