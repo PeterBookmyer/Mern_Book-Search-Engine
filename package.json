@@ -1,7 +1,7 @@
 {
   "name": "googlebooks-app",
   "version": "1.0.0",
-  "description": "Converting google book RESTful API to graphQL API",
+  "description": "",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -10,7 +10,7 @@
     "build": "cd client && npm run build"
   },
   "keywords": [],
-  "author": "Peter Bookmyer",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
