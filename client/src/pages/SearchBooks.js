@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
 import {
   Jumbotron,
   Container,
@@ -14,7 +15,6 @@ import { searchGoogleBooks } from "../utils/API";
 import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 
 import { SAVE_BOOK } from "../utils/mutations";
-import { useMutation } from "@apollo/client";
 
 const SearchBooks = () => {
   // create state for holding returned google api data
@@ -58,7 +58,7 @@ const SearchBooks = () => {
         bookId: book.id,
         authors: book.volumeInfo.authors || ["No author to display"],
         title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
+        description: book.volumeInfo.description || "No descrip to display",
         image: book.volumeInfo.imageLinks?.thumbnail || "",
       }));
 

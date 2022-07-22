@@ -23,7 +23,7 @@ const LoginForm = () => {
 
     //validate form
     const form = event.currentTarget;
-    if (form.checkAvailibility() === false) {
+    if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
